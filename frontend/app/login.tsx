@@ -17,11 +17,21 @@ import { apiClient, BACKEND_URL } from '../utils/api';
 import { Colors } from '../constants/Colors';
 
 function LoginContent() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('agent1');
+  const [password, setPassword] = useState('password123');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const router = useRouter();
+
+  // Auto-login on component mount
+  useEffect(() => {
+    const autoLogin = async () => {
+      // Wait a moment for the UI to render
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      handleLogin();
+    };
+    autoLogin();
+  }, []);
 
   const handleLogin = async () => {
     console.log('Login button clicked');
