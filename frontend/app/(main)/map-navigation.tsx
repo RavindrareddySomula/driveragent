@@ -45,6 +45,40 @@ export default function MapNavigation() {
   const params = useLocalSearchParams();
   const { user } = useAuth();
   const router = useRouter();
+  
+  // Web platform check - show message instead of map
+  if (Platform.OS === 'web') {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+            <Ionicons name="arrow-back" size={24} color="#fff" />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Navigation</Text>
+        </View>
+        <View style={styles.webContainer}>
+          <Ionicons name="phone-portrait" size={80} color="#007AFF" />
+          <Text style={styles.webTitle}>Mobile App Only</Text>
+          <Text style={styles.webMessage}>
+            Map navigation with real-time GPS tracking requires a mobile device.
+          </Text>
+          <Text style={styles.webInstructions}>
+            To test this feature:{'\n\n'}
+            📱 Open Expo Go app on your phone{'\n'}
+            📷 Scan the QR code from the terminal{'\n'}
+            🚀 Experience full navigation features
+          </Text>
+          <View style={styles.featuresList}>
+            <Text style={styles.featureItem}>✓ Real-time GPS tracking</Text>
+            <Text style={styles.featureItem}>✓ Google Maps integration</Text>
+            <Text style={styles.featureItem}>✓ Live location updates</Text>
+            <Text style={styles.featureItem}>✓ Route navigation</Text>
+          </View>
+        </View>
+      </View>
+    );
+  }
+  
   const mapRef = useRef<MapView>(null);
   const socketRef = useRef<Socket | null>(null);
   const locationSubscription = useRef<Location.LocationSubscription | null>(null);
