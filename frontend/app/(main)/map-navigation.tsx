@@ -91,6 +91,8 @@ export default function MapNavigation() {
   const [loading, setLoading] = useState(true);
   const [distance, setDistance] = useState<string>('');
   const [duration, setDuration] = useState<string>('');
+  const [speed, setSpeed] = useState<number>(0);
+  const [isTracking, setIsTracking] = useState<boolean>(false);
 
   const pickupLocation = {
     latitude: parseFloat(params.pickupLat as string),
