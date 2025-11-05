@@ -221,30 +221,42 @@ export default function MapNavigation() {
 
   const startLocationTracking = async () => {
     try {
+      // Request background location permissions
+      const { status: backgroundStatus } = await Location.requestBackgroundPermissionsAsync();
+      console.log('Background location permission:', backgroundStatus);
+      
       locationSubscription.current = await Location.watchPositionAsync(
         {
-          accuracy: Location.Accuracy.High,
-          timeInterval: 5000, // Update every 5 seconds
-          distanceInterval: 10, // Update every 10 meters
+          accuracy: Location.Accuracy.BestForNavigation,
+          timeInterval: 3000, // Update every 3 seconds for smoother tracking
+          distanceInterval: 5, // Update every 5 meters
         },
         (location) => {
           const newLocation = {
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
           };
+          
+          console.log('Location update:', newLocation);
           setCurrentLocation(newLocation);
 
           // Send location update via socket
-          if (socketRef.current) {
+          if (socketRef.current && socketRef.current.connected) {
             socketRef.current.emit('location_update', {
               lat: location.coords.latitude,
               lng: location.coords.longitude,
               order_id: params.orderId,
               agent_id: user?.id,
+              timestamp: new Date().toISOString(),
+              accuracy: location.coords.accuracy,
+              heading: location.coords.heading,
+              speed: location.coords.speed,
             });
+            console.log('Location sent via socket');
           }
         }
       );
+      console.log('Location tracking started');
     } catch (error) {
       console.error('Error tracking location:', error);
     }
