@@ -138,7 +138,7 @@ export default function OrderDetail() {
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
+        <ActivityIndicator size="large" color="#10B981" />
       </View>
     );
   }
@@ -155,7 +155,7 @@ export default function OrderDetail() {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#007AFF" />
+          <Ionicons name="arrow-back" size={24} color="#10B981" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Order Details</Text>
       </View>
@@ -172,8 +172,8 @@ export default function OrderDetail() {
                     order.status === 'pending'
                       ? '#FF9800'
                       : order.status === 'in_progress'
-                      ? '#2196F3'
-                      : '#4CAF50',
+                      ? '#10B981'
+                      : '#22C55E',
                 },
               ]}
             >
@@ -191,11 +191,11 @@ export default function OrderDetail() {
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Customer Information</Text>
           <View style={styles.infoRow}>
-            <Ionicons name="person" size={20} color="#007AFF" />
+            <Ionicons name="person" size={20} color="#10B981" />
             <Text style={styles.infoText}>{order.customer_info.name}</Text>
           </View>
           <View style={styles.infoRow}>
-            <Ionicons name="call" size={20} color="#007AFF" />
+            <Ionicons name="call" size={20} color="#10B981" />
             <Text style={styles.infoText}>{order.customer_info.phone}</Text>
           </View>
         </View>
@@ -211,7 +211,7 @@ export default function OrderDetail() {
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>Delivery Location</Text>
           <View style={styles.locationCard}>
-            <Ionicons name="location" size={24} color="#4CAF50" />
+            <Ionicons name="location" size={24} color="#22C55E" />
             <Text style={styles.locationText}>{order.delivery_location.address}</Text>
           </View>
         </View>
@@ -241,7 +241,7 @@ export default function OrderDetail() {
               style={[styles.secondaryButton, { flex: 1, marginRight: 8 }]}
               onPress={handleNavigate}
             >
-              <Ionicons name="navigate" size={24} color="#007AFF" />
+              <Ionicons name="navigate" size={24} color="#10B981" />
               <Text style={styles.secondaryButtonText}>Navigate</Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -263,7 +263,7 @@ export default function OrderDetail() {
 
         {order.status === 'completed' && (
           <View style={styles.completedBadge}>
-            <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />
+            <Ionicons name="checkmark-circle" size={24} color="#22C55E" />
             <Text style={styles.completedText}>Delivery Completed</Text>
           </View>
         )}
@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   primaryButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#10B981',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -381,7 +381,7 @@ const styles = StyleSheet.create({
   secondaryButton: {
     backgroundColor: '#fff',
     borderWidth: 2,
-    borderColor: '#007AFF',
+    borderColor: '#10B981',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   secondaryButtonText: {
-    color: '#007AFF',
+    color: '#10B981',
     fontSize: 18,
     fontWeight: '600',
     marginLeft: 8,
@@ -412,7 +412,7 @@ const styles = StyleSheet.create({
   completedText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#4CAF50',
+    color: '#22C55E',
     marginLeft: 8,
   },
 });

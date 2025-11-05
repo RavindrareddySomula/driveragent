@@ -50,7 +50,7 @@ export default function Profile() {
         <View style={styles.infoSection}>
           <View style={styles.infoCard}>
             <View style={styles.infoRow}>
-              <Ionicons name="call" size={20} color="#007AFF" />
+              <Ionicons name="call" size={20} color="#10B981" />
               <View style={styles.infoContent}>
                 <Text style={styles.infoLabel}>Phone</Text>
                 <Text style={styles.infoValue}>{user?.phone}</Text>
@@ -60,7 +60,7 @@ export default function Profile() {
 
           <View style={styles.infoCard}>
             <View style={styles.infoRow}>
-              <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
+              <Ionicons name="checkmark-circle" size={20} color="#22C55E" />
               <View style={styles.infoContent}>
                 <Text style={styles.infoLabel}>Status</Text>
                 <Text style={[styles.infoValue, styles.statusActive]}>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    backgroundColor: '#007AFF',
+    backgroundColor: '#10B981',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   statusActive: {
-    color: '#4CAF50',
+    color: '#22C55E',
   },
   logoutButton: {
     backgroundColor: '#FF3B30',

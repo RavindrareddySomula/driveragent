@@ -8,7 +8,7 @@ export default function MainLayout() {
     <AuthProvider>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: '#007AFF',
+          tabBarActiveTintColor: '#10B981',
           tabBarInactiveTintColor: '#999',
           headerShown: false,
           tabBarStyle: {

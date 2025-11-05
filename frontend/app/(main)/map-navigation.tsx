@@ -57,7 +57,7 @@ export default function MapNavigation() {
           <Text style={styles.headerTitle}>Navigation</Text>
         </View>
         <View style={styles.webContainer}>
-          <Ionicons name="phone-portrait" size={80} color="#007AFF" />
+          <Ionicons name="phone-portrait" size={80} color="#10B981" />
           <Text style={styles.webTitle}>Mobile App Only</Text>
           <Text style={styles.webMessage}>
             Map navigation with real-time GPS tracking requires a mobile device.
@@ -311,7 +311,7 @@ export default function MapNavigation() {
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
+        <ActivityIndicator size="large" color="#10B981" />
         <Text style={styles.loadingText}>Loading map...</Text>
       </View>
     );
@@ -340,7 +340,7 @@ export default function MapNavigation() {
             description="Current position"
           >
             <View style={styles.currentLocationMarker}>
-              <Ionicons name="navigate-circle" size={40} color="#007AFF" />
+              <Ionicons name="navigate-circle" size={40} color="#10B981" />
             </View>
           </Marker>
         )}
@@ -366,7 +366,7 @@ export default function MapNavigation() {
           <Polyline
             coordinates={routeCoordinates}
             strokeWidth={4}
-            strokeColor="#007AFF"
+            strokeColor="#10B981"
           />
         )}
       </MapView>
@@ -381,13 +381,13 @@ export default function MapNavigation() {
       <View style={styles.infoCard}>
         <View style={styles.infoRow}>
           <View style={styles.infoItem}>
-            <Ionicons name="navigate" size={24} color="#007AFF" />
+            <Ionicons name="navigate" size={24} color="#10B981" />
             <Text style={styles.infoLabel}>Distance</Text>
             <Text style={styles.infoValue}>{distance || 'Calculating...'}</Text>
           </View>
           <View style={styles.divider} />
           <View style={styles.infoItem}>
-            <Ionicons name="time" size={24} color="#007AFF" />
+            <Ionicons name="time" size={24} color="#10B981" />
             <Text style={styles.infoLabel}>Duration</Text>
             <Text style={styles.infoValue}>{duration || 'Calculating...'}</Text>
           </View>
@@ -401,7 +401,7 @@ export default function MapNavigation() {
             </Text>
           </View>
           <View style={styles.locationItem}>
-            <View style={[styles.locationDot, { backgroundColor: '#4CAF50' }]} />
+            <View style={[styles.locationDot, { backgroundColor: '#22C55E' }]} />
             <Text style={styles.locationAddress} numberOfLines={1}>
               {deliveryLocation.address}
             </Text>
@@ -410,7 +410,7 @@ export default function MapNavigation() {
       </View>
 
       <TouchableOpacity style={styles.recenterButton} onPress={fitMapToMarkers}>
-        <Ionicons name="locate" size={24} color="#007AFF" />
+        <Ionicons name="locate" size={24} color="#10B981" />
       </TouchableOpacity>
     </View>
   );
@@ -570,7 +570,7 @@ const styles = StyleSheet.create({
   },
   featureItem: {
     fontSize: 14,
-    color: '#007AFF',
+    color: '#10B981',
     marginVertical: 4,
   },
 });

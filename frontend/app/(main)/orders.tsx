@@ -73,9 +73,9 @@ export default function Orders() {
       case 'pending':
         return '#FF9800';
       case 'in_progress':
-        return '#2196F3';
+        return '#10B981';
       case 'completed':
-        return '#4CAF50';
+        return '#22C55E';
       default:
         return '#999';
     }
@@ -122,7 +122,7 @@ export default function Orders() {
       </View>
 
       <View style={styles.locationRow}>
-        <Ionicons name="location" size={20} color="#4CAF50" />
+        <Ionicons name="location" size={20} color="#22C55E" />
         <View style={styles.locationInfo}>
           <Text style={styles.locationLabel}>Delivery</Text>
           <Text style={styles.locationAddress} numberOfLines={1}>
@@ -143,7 +143,7 @@ export default function Orders() {
   if (loading) {
     return (
       <View style={styles.centerContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
+        <ActivityIndicator size="large" color="#10B981" />
       </View>
     );
   }
