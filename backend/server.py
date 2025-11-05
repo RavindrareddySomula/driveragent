@@ -94,59 +94,120 @@ async def startup_event():
         test_agent = {
             "username": "agent1",
             "password": hash_password("password123"),
-            "name": "John Doe",
-            "phone": "+1234567890",
+            "name": "Rajesh Kumar",
+            "phone": "+91 9876543210",
             "status": "active",
             "created_at": datetime.utcnow()
         }
         result = await db.delivery_agents.insert_one(test_agent)
         agent_id = str(result.inserted_id)
         
-        # Create test orders
+        # Create test orders in Hyderabad, India (within 5km radius)
+        # Center: 17.3850, 78.4867 (Hyderabad)
         test_orders = [
             {
-                "order_number": "ORD001",
+                "order_number": "HYD001",
                 "pickup_location": {
-                    "lat": 37.7749,
-                    "lng": -122.4194,
-                    "address": "123 Market St, San Francisco, CA"
+                    "lat": 17.4239,
+                    "lng": 78.4738,
+                    "address": "Banjara Hills, Road No 12, Hyderabad, Telangana 500034"
                 },
                 "delivery_location": {
-                    "lat": 37.8044,
-                    "lng": -122.2712,
-                    "address": "456 Broadway, Oakland, CA"
+                    "lat": 17.4065,
+                    "lng": 78.4772,
+                    "address": "Jubilee Hills, Plot 45, Hyderabad, Telangana 500033"
                 },
                 "assigned_agent_id": agent_id,
                 "status": "pending",
                 "customer_info": {
-                    "name": "Alice Johnson",
-                    "phone": "+1234567891"
+                    "name": "Priya Sharma",
+                    "phone": "+91 9988776655"
                 },
                 "created_at": datetime.utcnow()
             },
             {
-                "order_number": "ORD002",
+                "order_number": "HYD002",
                 "pickup_location": {
-                    "lat": 37.8044,
-                    "lng": -122.2712,
-                    "address": "789 Main St, Oakland, CA"
+                    "lat": 17.3616,
+                    "lng": 78.4747,
+                    "address": "Somajiguda, Raj Bhavan Road, Hyderabad, Telangana 500082"
                 },
                 "delivery_location": {
-                    "lat": 37.7749,
-                    "lng": -122.4194,
-                    "address": "321 Mission St, San Francisco, CA"
+                    "lat": 17.4126,
+                    "lng": 78.4479,
+                    "address": "Madhapur, HITEC City, Hyderabad, Telangana 500081"
                 },
                 "assigned_agent_id": agent_id,
                 "status": "pending",
                 "customer_info": {
-                    "name": "Bob Smith",
-                    "phone": "+1234567892"
+                    "name": "Amit Patel",
+                    "phone": "+91 9123456789"
+                },
+                "created_at": datetime.utcnow()
+            },
+            {
+                "order_number": "HYD003",
+                "pickup_location": {
+                    "lat": 17.4435,
+                    "lng": 78.3772,
+                    "address": "Kondapur, Botanical Garden Road, Hyderabad, Telangana 500084"
+                },
+                "delivery_location": {
+                    "lat": 17.4326,
+                    "lng": 78.4071,
+                    "address": "Gachibowli, DLF Cyber City, Hyderabad, Telangana 500032"
+                },
+                "assigned_agent_id": agent_id,
+                "status": "pending",
+                "customer_info": {
+                    "name": "Sneha Reddy",
+                    "phone": "+91 9876512345"
+                },
+                "created_at": datetime.utcnow()
+            },
+            {
+                "order_number": "HYD004",
+                "pickup_location": {
+                    "lat": 17.3753,
+                    "lng": 78.5268,
+                    "address": "Uppal, Main Road, Hyderabad, Telangana 500039"
+                },
+                "delivery_location": {
+                    "lat": 17.3894,
+                    "lng": 78.4896,
+                    "address": "Begumpet, Paradise Circle, Hyderabad, Telangana 500016"
+                },
+                "assigned_agent_id": agent_id,
+                "status": "pending",
+                "customer_info": {
+                    "name": "Karthik Rao",
+                    "phone": "+91 9765432108"
+                },
+                "created_at": datetime.utcnow()
+            },
+            {
+                "order_number": "HYD005",
+                "pickup_location": {
+                    "lat": 17.4399,
+                    "lng": 78.4983,
+                    "address": "Kukatpally, KPHB Colony, Hyderabad, Telangana 500072"
+                },
+                "delivery_location": {
+                    "lat": 17.4485,
+                    "lng": 78.3908,
+                    "address": "Miyapur, BHEL Township, Hyderabad, Telangana 500049"
+                },
+                "assigned_agent_id": agent_id,
+                "status": "pending",
+                "customer_info": {
+                    "name": "Lakshmi Devi",
+                    "phone": "+91 9234567890"
                 },
                 "created_at": datetime.utcnow()
             }
         ]
         await db.orders.insert_many(test_orders)
-        logging.info("Test data created")
+        logging.info("Hyderabad test data created")
 
 # API Routes
 @api_router.post("/auth/login", response_model=DeliveryAgentResponse)
