@@ -205,19 +205,19 @@ const styles = StyleSheet.create({
   demoInfo: {
     marginTop: 32,
     padding: 16,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: Colors.background,
     borderRadius: 12,
     alignItems: 'center',
   },
   demoText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#1976D2',
+    color: Colors.primaryDark,
     marginBottom: 8,
   },
   demoDetail: {
     fontSize: 13,
-    color: '#1565C0',
+    color: Colors.primary,
     marginTop: 2,
   },
 });
