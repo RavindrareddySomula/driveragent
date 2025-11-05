@@ -534,4 +534,43 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  webContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+    backgroundColor: '#f5f5f5',
+  },
+  webTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#333',
+    marginTop: 24,
+    marginBottom: 16,
+  },
+  webMessage: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
+    marginBottom: 24,
+    lineHeight: 24,
+  },
+  webInstructions: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+    backgroundColor: '#E3F2FD',
+    padding: 20,
+    borderRadius: 12,
+    marginBottom: 24,
+    lineHeight: 22,
+  },
+  featuresList: {
+    alignItems: 'flex-start',
+  },
+  featureItem: {
+    fontSize: 14,
+    color: '#007AFF',
+    marginVertical: 4,
+  },
 });
