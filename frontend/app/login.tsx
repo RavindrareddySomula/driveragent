@@ -71,7 +71,7 @@ function LoginContent() {
     >
       <View style={styles.content}>
         <View style={styles.header}>
-          <Ionicons name="bicycle" size={64} color="#007AFF" />
+          <Ionicons name="bicycle" size={64} color={Colors.primary} />
           <Text style={styles.title}>Delivery Agent</Text>
           <Text style={styles.subtitle}>Login to continue</Text>
         </View>
