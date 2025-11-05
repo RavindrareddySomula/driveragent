@@ -51,10 +51,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const logout = async () => {
     try {
-      await AsyncStorage.removeItem('user');
+      // Clear all AsyncStorage data
+      await AsyncStorage.clear();
+      console.log('All storage cleared on logout');
       setUser(null);
     } catch (error) {
-      console.error('Error removing user:', error);
+      console.error('Error clearing storage:', error);
     }
   };
 
