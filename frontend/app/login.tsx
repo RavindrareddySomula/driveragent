@@ -25,25 +25,41 @@ function LoginContent() {
   const router = useRouter();
 
   const handleLogin = async () => {
+    console.log('Login button clicked');
+    console.log('Backend URL:', BACKEND_URL);
+    
     if (!username || !password) {
-      Alert.alert('Error', 'Please enter both username and password');
+      const message = 'Please enter both username and password';
+      console.error(message);
+      if (Platform.OS === 'web') {
+        alert(message);
+      } else {
+        Alert.alert('Error', message);
+      }
       return;
     }
 
     setLoading(true);
+    console.log('Attempting login with:', username);
+    
     try {
       const response = await axios.post(`${BACKEND_URL}/api/auth/login`, {
         username,
         password,
       });
       
+      console.log('Login successful:', response.data);
       await login(response.data);
+      console.log('User data saved, navigating to orders...');
       router.replace('/(main)/orders');
     } catch (error: any) {
-      Alert.alert(
-        'Login Failed',
-        error.response?.data?.detail || 'Invalid username or password'
-      );
+      console.error('Login error:', error);
+      const message = error.response?.data?.detail || 'Invalid username or password';
+      if (Platform.OS === 'web') {
+        alert('Login Failed: ' + message);
+      } else {
+        Alert.alert('Login Failed', message);
+      }
     } finally {
       setLoading(false);
     }
