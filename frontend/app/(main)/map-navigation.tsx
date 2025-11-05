@@ -241,6 +241,11 @@ export default function MapNavigation() {
           
           console.log('Location update:', newLocation);
           setCurrentLocation(newLocation);
+          setIsTracking(true);
+          
+          // Update speed (convert m/s to km/h)
+          const speedKmh = (location.coords.speed || 0) * 3.6;
+          setSpeed(Math.round(speedKmh));
 
           // Send location update via socket
           if (socketRef.current && socketRef.current.connected) {
