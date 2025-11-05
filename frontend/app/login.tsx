@@ -11,11 +11,9 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-import axios from 'axios';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { Ionicons } from '@expo/vector-icons';
-
-const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
+import { apiClient, BACKEND_URL } from '../utils/api';
 
 function LoginContent() {
   const [username, setUsername] = useState('');
