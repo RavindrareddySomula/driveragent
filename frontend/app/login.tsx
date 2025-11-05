@@ -41,7 +41,7 @@ function LoginContent() {
     console.log('Attempting login with:', username);
     
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/auth/login`, {
+      const response = await apiClient.post('/api/auth/login', {
         username,
         password,
       });
