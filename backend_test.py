@@ -14,7 +14,7 @@ import sys
 import os
 
 # Get backend URL from environment
-BACKEND_URL = "http://35.223.234.30"
+BACKEND_URL = "http://localhost:8001"
 API_BASE_URL = f"{BACKEND_URL}/api"
 
 class DeliveryAgentAPITester:
