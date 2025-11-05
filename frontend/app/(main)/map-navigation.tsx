@@ -7,13 +7,31 @@ import {
   Alert,
   ActivityIndicator,
   Platform,
+  Linking,
 } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
-import * as Location from 'expo-location';
 import { Ionicons } from '@expo/vector-icons';
-import { io, Socket } from 'socket.io-client';
 import { useAuth } from '../../contexts/AuthContext';
+
+// Only import maps on native platforms
+let MapView: any = null;
+let Marker: any = null;
+let Polyline: any = null;
+let PROVIDER_GOOGLE: any = null;
+let Location: any = null;
+let io: any = null;
+let Socket: any = null;
+
+if (Platform.OS !== 'web') {
+  MapView = require('react-native-maps').default;
+  Marker = require('react-native-maps').Marker;
+  Polyline = require('react-native-maps').Polyline;
+  PROVIDER_GOOGLE = require('react-native-maps').PROVIDER_GOOGLE;
+  Location = require('expo-location');
+  const socketIO = require('socket.io-client');
+  io = socketIO.io;
+  Socket = socketIO.Socket;
+}
 
 const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 const GOOGLE_MAPS_API_KEY = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY;
