@@ -398,7 +398,22 @@ export default function MapNavigation() {
       </View>
 
       <View style={styles.infoCard}>
+        {/* Live Tracking Status */}
+        {isTracking && (
+          <View style={styles.trackingBanner}>
+            <View style={styles.pulseDot} />
+            <Text style={styles.trackingText}>Live Tracking Active</Text>
+          </View>
+        )}
+        
+        {/* Speed and Navigation Info */}
         <View style={styles.infoRow}>
+          <View style={styles.infoItem}>
+            <Ionicons name="speedometer" size={24} color="#10B981" />
+            <Text style={styles.infoLabel}>Speed</Text>
+            <Text style={styles.infoValue}>{speed} km/h</Text>
+          </View>
+          <View style={styles.divider} />
           <View style={styles.infoItem}>
             <Ionicons name="navigate" size={24} color="#10B981" />
             <Text style={styles.infoLabel}>Distance</Text>
@@ -407,7 +422,7 @@ export default function MapNavigation() {
           <View style={styles.divider} />
           <View style={styles.infoItem}>
             <Ionicons name="time" size={24} color="#10B981" />
-            <Text style={styles.infoLabel}>Duration</Text>
+            <Text style={styles.infoLabel}>ETA</Text>
             <Text style={styles.infoValue}>{duration || 'Calculating...'}</Text>
           </View>
         </View>
