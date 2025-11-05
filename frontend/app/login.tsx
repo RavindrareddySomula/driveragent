@@ -14,6 +14,7 @@ import { useRouter } from 'expo-router';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { Ionicons } from '@expo/vector-icons';
 import { apiClient, BACKEND_URL } from '../utils/api';
+import { Colors } from '../constants/Colors';
 
 function LoginContent() {
   const [username, setUsername] = useState('');
